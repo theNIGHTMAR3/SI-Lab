@@ -1,15 +1,15 @@
 from exceptions import GameplayException
 from connect4 import Connect4
-from randomagent import RandomAgent
+from minmax_agent import MinMaxAgent
 
 
 connect4 = Connect4()
-agent = RandomAgent('x')
+agent = MinMaxAgent('x')
 while not connect4.game_over:
     connect4.draw()
     try:
         if connect4.who_moves == agent.my_token:
-            n_column = agent.decide_minimax(connect4)
+            n_column = agent.decide(connect4)
         else:
             n_column = int(input(':'))
         connect4.drop_token(n_column)
@@ -17,3 +17,4 @@ while not connect4.game_over:
         print('invalid move')
 
 connect4.draw()
+ 

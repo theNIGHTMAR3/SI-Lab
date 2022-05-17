@@ -47,6 +47,7 @@ class Connect4:
             for n_column in range(self.width-3):
                 yield [self.board[n_row+i][n_column+i] for i in range(4)]  # decreasing
                 yield [self.board[n_row+i][self.width-1-n_column-i] for i in range(4)]  # increasing
+    
 
                 
 
@@ -63,26 +64,6 @@ class Connect4:
                 self.wins = 'x'
                 return True
         return False
-    
-    def check_three_and_two(self):
-        score=0
-        if not self.possible_drops():
-            return 0
-
-        for three in self.iter_fours():
-            if three == ['o', 'o', 'o']:
-                score+=5
-            elif three == ['x', 'x', 'x']:
-                score-=4
-
-        for two in self.iter_fours():
-            if two == ['o', 'o']:
-                score+=2
-            elif two == ['x', 'x']:
-                score-=1
-
-        return score
-
 
     def draw(self):
         for row in self.board:
