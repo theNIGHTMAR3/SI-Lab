@@ -1,0 +1,1 @@
+{"num_inputs": 9, "num_outputs": 1, "hidden_dims": [10, 20, 10], "activation_fcn": "relu", "learning_rate": 0.001}
